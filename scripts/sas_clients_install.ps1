@@ -55,12 +55,12 @@ $latest = Get-ChildItem -Path ${logdir}\deployw* | Sort-Object LastAccessTime -D
 $latest.name
 Set-Location $logdir
 $sort_string = Select-String -Path $latest.name -Pattern "ExitInstance="
-$alert = $sort_string | Select-String -pattern "ExitInstance=0" -notMatch
-if ($alert) { 
-	ExitWithCode
-    throw "Install Is Failed"
+$status = $sort_string.Line.split() | ForEach-Object {$_.substring($_.length-1)} | Select-Object -first 1 -skip 1 
+if ($status -ne 0) { 
+    Write-Host "Install Is Failed"
+    exit $code
     }
 else {
     Write-Host "Install Is Sucess"
-}
+ }
 $Path = $env:TEMP; $Installer = "chrome_installer.exe"; Invoke-WebRequest "http://dl.google.com/chrome/install/375.126/chrome_installer.exe" -OutFile $Path\$Installer; Start-Process -FilePath $Path\$Installer -Args "/silent /install" -Verb RunAs -Wait; Remove-Item $Path\$Installer
