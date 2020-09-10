@@ -48,7 +48,7 @@ if ($connectTestResult.TcpTestSucceeded) {
     Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
 }
 Set-Location "Z:\${depot_folder_name}"
-.\setup.exe -lang en -deploy -datalocation C:\saslog -responsefile ${logdir}\client_install.properties -quiet 
+.\setup.exe -lang en -deploy -datalocation C:\saslog -responsefile ${logdir}\clients_install.properties -quiet 
 ExitWithCode
 Start-Sleep -Seconds 1200
 $latest = Get-ChildItem -Path ${logdir}\deployw* | Sort-Object LastAccessTime -Descending | Select-Object -First 1
