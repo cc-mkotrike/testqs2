@@ -1,0 +1,79 @@
+- hosts: sas94metamid
+  become: yes
+  become_user: sasinst
+  tasks:
+    - name: Status of sas services on Metadata and Mid-Tier server
+      shell: "{{ item }}"
+      with_items:
+      - "/usr/local/config/Lev1/sas.servers status > /tmp/sas_{{ ansible_hostname }}_status.txt"
+      register: result
+    - name: sleep for 5 seconds and continue with play
+      wait_for: timeout=5
+
+- hosts: sas94grid
+  become: yes
+  become_user: sasinst
+  tasks:
+    - name: Status of sas services on grid server
+      shell: "{{ item }}"
+      with_items:
+      - "/opt/sas/grid/config/Lev1/sas.servers status > /tmp/sas_{{ ansible_hostname }}_status.txt"
+      register: result
+    - name: sleep for 5 seconds and continue with play
+      wait_for: timeout=5
+
+- hosts: sas94gridnodes
+  become: yes
+  become_user: sasinst
+  tasks:
+    - name: Status of sas services on grid node server
+      shell: "{{ item }}"
+      with_items:
+      - "/opt/sas/grid/config/Lev1/Web/SASEnvironmentManager/grid/{{ ansible_hostname }}/agent-5.8.0-EE/bin/hq-agent.sh status > /tmp/sas_{{ ansible_hostname }}_status.txt"
+      register: result
+      ignore_errors: yes 
+    - name: sleep for 5 seconds and continue with play
+      wait_for: timeout=5
+
+- hosts: sasviya
+  become: yes
+  tasks:
+    - name: Status of sas services on viya servers
+      shell: "{{ item }}"
+      with_items:
+      - "/etc/init.d/sas-viya-all-services status > /tmp/sas_{{ ansible_hostname }}_status.txt"
+      register: result
+    - name: sleep for 5 seconds and continue with play
+      wait_for: timeout=5
+
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Remove the status folder
+      file: 
+        path: /root/srvstatus
+        state: absent
+
+- hosts: all
+  tasks:
+    - name: Transfer file from all servers to ansible server
+      fetch:
+        src: "/tmp/sas_{{ ansible_hostname }}_status.txt"
+        flat: yes
+        validate_checksum: yes
+        dest: "/root/srvstatus/sas_{{ ansible_hostname }}_status.txt.tmp"
+
+    #- name: Merging Files
+      #shell: "{{ item }}"
+      #with_items:
+      #- cat /root/srvstatus/sas_meta_status.txt.tmp > /root/srvstatus/sas_status.txt
+      #- cat /root/srvstatus/sas_grid_status.txt.tmp >> /root/srvstatus/sas_status.txt
+      #- cat /root/srvstatus/sas_mid_status.txt.tmp >> /root/srvstatus/sas_status.txt
+    #- name: Remove file (delete file)
+      #file:
+        #path: "/root/srvstatus/{{ item }}"
+        #state: absent
+      #with_items:
+      #- sas_meta_status.txt.tmp
+      #- sas_grid_status.txt.tmp
+      #- sas_mid_status.txt.tmp
