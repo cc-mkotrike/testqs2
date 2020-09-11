@@ -3,6 +3,9 @@
 This README for SAS 9 Grid Manager for Platform + Viya Quickstart Template for Azure is used to deploy the following SAS 9 Grid Manager for Platform + Viya products in the Azure cloud:
 
 
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcorecompete%2Fsas94grid-viya%2Fdevelop%2Fazuredeploy.json) 
+
+
 ## SAS 9 Components
 * SAS Enterprise BI Server 9.4
 * SAS Enterprise Miner 15.1
