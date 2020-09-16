@@ -3562,7 +3562,7 @@
                         "value": "[variables('mgt_vm_name')]"
                     },
                     "commandToExecute": {
-                        "value": "[concat('mkdir -p /var/log/sas/install && set -o pipefail; ./lustre_pre_install.sh',' ',parameters('_artifactsLocation'),'2>&1 | tee /var/log/sas/install/lustre_pre_install.log')]"
+                        "value": "[concat('mkdir -p /var/log/sas/install && set -o pipefail; ./lustre_pre_install.sh',' ',parameters('_artifactsLocation'),' ','2>&1 | tee /var/log/sas/install/lustre_pre_install.log')]"
                     },
                     "_artifactsLocation": {
                         "value": "[variables('lustre_pre_install_sh')]"
