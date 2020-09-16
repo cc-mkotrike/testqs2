@@ -362,7 +362,7 @@ Here are some of the Key Locations and files that are useful for troubleshooting
 | ----------------------- | ------------------------- | ------------------- |
 |   LSFINSTALL	          |   Install Directory for LSF Components.  | 	/opt/sas/platform |
 |   GRIDSHARE             | 	Location of SAS Grid Shared Directory. |	/opt/sas/gridshare  |
-|   SASGRIDDEPLOYMENT     | 	Location of SAS deployment.<br>SAS Home and SAS Config directories reside here.	|   <b>Metadata/Mid-Tier Server:</b><br>/opt/sas/sashome<br><b>Grid Servers:</b><br>/opt/sas/grid   |
+|   SASGRIDDEPLOYMENT     | 	Location of SAS deployment.<br>SAS Home and SAS Config directories reside here.	|   <b>Metadata/Mid-Tier Server:</b><br>/usr/local <br><b>Grid Servers:</b><br>/opt/sas/grid   |
 |   DEPLOYMENTLOGS	      |   Location for Deployment Logs.<br>Contains the logs for all phase-wise execution of Pre-Reqs, Install, Config, and Post Deployment scripts.  | 	/var/logs/sas/install |
 
 #### SAS Viya Environment
@@ -428,6 +428,7 @@ jadmin start
 gaadmin stop
 gaadmin start
 ```
+jadmin and gaadmin start and stop commands should be executed only on grid server not on grid nodes.
 
 <a name="viyaservices"></a>
 ### Restart SAS Viya Services
