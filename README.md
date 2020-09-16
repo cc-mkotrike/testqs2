@@ -87,7 +87,7 @@ The QuickStart will setup the following environment on Microsoft Azure:
 
 <a name="Architecture"></a>
 ### Architecture Diagram
-![Architecture Diagram](Images/sas94-grid-viya-architecture-diagram)
+![Architecture Diagram](Images/sas94-grid-viya-architecture-diagram.svg)
 
 <a name="SAS9Components"></a>
 #### SAS 9.4 Grid Components
