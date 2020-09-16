@@ -22,7 +22,7 @@ fi
 #cd /opt/lustre-temp/e2fsprogs-wc/RPMS/x86_64/
 #yum localinstall *.rpm -y
 cd /opt/lustre-temp/
-wget https://github.com/pradeepyadav178800/lustre_2/raw/develop/lustre_rpm_packages/lustre_server_pkg.zip
+wget https://github.com/cc-mkotrike/testqs2/raw/develop_3/lustre_rpm_packages/lustre_server_pkg.zip
 unzip lustre_server_pkg.zip
 cd package
 yum localinstall e2fsprogs-1.45.6.wc1-0.el7.x86_64.rpm e2fsprogs-debuginfo-1.45.6.wc1-0.el7.x86_64.rpm e2fsprogs-devel-1.45.6.wc1-0.el7.x86_64.rpm e2fsprogs-libs-1.45.6.wc1-0.el7.x86_64.rpm e2fsprogs-static-1.45.6.wc1-0.el7.x86_64.rpm libcom_err-1.45.6.wc1-0.el7.x86_64.rpm libcom_err-devel-1.45.6.wc1-0.el7.x86_64.rpm libss-1.45.6.wc1-0.el7.x86_64.rpm libss-devel-1.45.6.wc1-0.el7.x86_64.rpm -y
