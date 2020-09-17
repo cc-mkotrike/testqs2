@@ -1987,7 +1987,7 @@
             "dependsOn": [
                 "[resourceId('Microsoft.Compute/virtualMachines', variables('ansible_vm_name'))]",
                 "[resourceId('Microsoft.Resources/deployments','Phase2-MetaInstall')]",
-                "[resourceId('Microsoft.Resources/deployments','Phase2-GridPSSInstall')]"
+                "sasnodepsscopy"
             ],
             "properties": {
                 "mode": "Incremental",
@@ -3368,7 +3368,7 @@
             "apiVersion": "2019-10-01",
             "name": "[concat('Phase2-GridNodePSSInstall', copyIndex(1))]",
             "copy": {
-                "name": "sasnodecopy",
+                "name": "sasnodepsscopy",
                 "count": "[parameters('Number of SAS94 Grid Nodes')]"
             },
             "dependsOn": [
