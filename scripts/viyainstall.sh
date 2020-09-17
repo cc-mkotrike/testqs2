@@ -98,18 +98,6 @@ sed -i "/\[ComputeServer\]/{n;s/.*/$spre_vm_name/}" $inventory
 sed -i "/\[Operations\]/{n;s/.*/$spre_vm_name/}" $inventory
 sed -i "/\[programming\]/{n;s/.*/$spre_vm_name/}" $inventory
 
-#Only for internal purpose(corecompete)
-sed -i "/\[elasticsearch\]/{n;s/.*//}" $inventory
-sed -i "/\[espServer\]/{n;s/.*//}" $inventory
-sed -i "/\[espStreamviewer\]/{n;s/.*//}" $inventory
-sed -i "/\[espStudio\]/{n;s/.*//}" $inventory
-sed -i "/\[sviconfig\]/{n;s/.*//}" $inventory
-sed -i "/\[viprCommon\]/{n;s/.*//}" $inventory
-sed -i "/\[viprESM\]/{n;s/.*//}" $inventory
-sed -i "/\[viprEntity\]/{n;s/.*//}" $inventory
-sed -i "/\[viprVi\]/{n;s/.*//}" $inventory
-sed -i "/\[viprVsd\]/{n;s/.*//}" $inventory
-sed -i "/\[viprSand\]/{n;s/.*//}" $inventory
 
 cat <<EOF >> caswork.txt
 $spre_vm_name
