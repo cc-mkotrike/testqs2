@@ -4026,7 +4026,7 @@
                         "value": "[concat(variables('oss_vm_name'), copyIndex(1))]"
                     },
                     "commandToExecute": {
-                        "value": "[concat('mkdir -p /var/log/sas/install && set -o pipefail; ./lustre_pre_install.sh',' ',parameters('_artifactsLocation'),' ',variables('mgt_vm_name'),' ',copyIndex(1),' ','2>&1 | tee /var/log/sas/install/lustre_pre_install.log')]"
+                        "value": "[concat('mkdir -p /var/log/sas/install && set -o pipefail; ./lustre_pre_install.sh',' ',parameters('_artifactsLocation'),' ',variables('mgt_vm_name'),' ',copyIndex(1),' ','2>&1 | tee /var/log/sas/install/lustre_pre-req.log')]"
                     },
                     "_artifactsLocation": {
                         "value": "[variables('lustre_pre_install_sh')]"
@@ -4064,7 +4064,7 @@
                         "value": "[concat(variables('oss_vm_name'), copyIndex(1))]"
                     },
                     "commandToExecute": {
-                        "value": "[concat('set -o pipefail;','./oss_node_install.sh 2>&1 | tee /var/log/sas/install/pre-req.log')]"
+                        "value": "[concat('set -o pipefail;','./oss_node_install.sh 2>&1 | tee /var/log/sas/install/lustre_install.log')]"
                     },
                     "_artifactsLocation": {
                         "value": "[variables('oss_node_install_sh')]"
