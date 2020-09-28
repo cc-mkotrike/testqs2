@@ -1,12 +1,11 @@
+# SAS® 9.4 Grid Manager for Platform and SAS Viya® Quickstart Template for Azure
 
-# SAS 9.4 Grid Manager for Platform + Viya Quickstart Template for Azure
-
-[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcc-mkotrike%2Ftestqs2%2Fdevelop_3%2Fazuredeploy.json) 
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcorecompete%2Fsas94grid-viya%2Fmaster%2Fazuredeploy.json) 
 
 
-This README for  SAS 9.4 Grid Manager for Platform + Viya Quickstart Template for Azure is used to deploy the following SAS 9.4 Grid + Viya products in the Azure cloud. 
+This README for  SAS® 9.4® Grid Manager for Platform & SAS® Viya® QuickStart Template for Azure is used to deploy the following SAS 9.4 Grid and SAS Viya products on Microsoft® Azure cloud. 
 
-#### SAS 9.4 Grid 
+#### SAS® 9.4 Grid 
 * SAS Enterprise BI Server 9.4
 * SAS Enterprise Miner 15.1
 * SAS Enterprise Guide 8.2 
@@ -14,7 +13,7 @@ This README for  SAS 9.4 Grid Manager for Platform + Viya Quickstart Template fo
 * SAS Grid Manager for Platform 9.44 
 * SAS Office Analytics 7.4
 * Platform Suite for SAS 10.11
-#### SAS Viya
+#### SAS Viya®
 * SAS Visual Analytics 8.5 on Linux
 * SAS Visual Statistics 8.5 on Linux
 * SAS Visual Data Mining and Machine Learning 8.5 on Linux
@@ -25,7 +24,7 @@ This Quickstart is a reference architecture for users who want to deploy the SAS
 For assistance with SAS software, contact [SAS Technical Support](https://support.sas.com/en/technical-support.html). When you contact support, you will be required to provide information, such as your SAS site number, company name, email address, and phone number, that identifies you as a licensed SAS software customer.
 
 ## Contents
-- [SAS 9.4 Grid Manager for Platform + Viya Quickstart Template for Azure](#sas94-viya-quickstart-template-for-azure)
+- [SAS® 9.4 Grid Manager for Platform and SAS Viya® Quickstart Template for Azure](#sas94-viya-quickstart-template-for-azure)
   - [Solution Summary](#Summary)
     - [Objective](#Objective)
     - [Architecture Overview](#Overview)
@@ -64,11 +63,11 @@ For assistance with SAS software, contact [SAS Technical Support](https://suppor
 
 <a name="Summary"></a>
 ## Solution Summary
-This QuickStart is intended to help SAS customers deploy a cloud-native environment that provides both SAS 9.4 Grid platform and the SAS Viya 3.5 platform in an integrated environment. It is intended to provide an easy way for customers to get a comprehensive SAS environment, that will likely result in faster migrations and deployments into the Azure environment. The SAS ecosystem is deployed on the Azure platform, leveraging Azure native deployment approaches. As part of the deployment, you get all the powerful data management, analytics, and visualization capabilities of SAS, deployed on a high-performance infrastructure.
+This QuickStart is intended to help SAS® customers deploy a cloud-native environment that provides both SAS® 9.4 Grid platform and the SAS® Viya 3.5 platform in an integrated environment. It is intended to provide an easy way for customers to get a comprehensive SAS environment, that will likely result in faster migrations and deployments into the Azure environment. The SAS ecosystem is deployed on the Azure platform, leveraging Azure native deployment approaches. As part of the deployment, you get all the powerful data management, analytics, and visualization capabilities of SAS, deployed on a high-performance infrastructure.
 
 <a name="Objective"></a>
 ### Objective
-The SAS 9.4 Grid & Viya QuickStart for Azure will take a SAS provided license package for SAS 9.4 Grid, Viya and deploy a well-architected SAS platform into the customer’s Azure subscription. The deployment creates a virtual network and other required infrastructure. After the deployment process completes, you will have the necessary details for the endpoints and connection details to log in to the new SAS Ecosystem. By default, QuickStart deployments enable Transport Layer Security (TLS) for secure communication
+The SAS® 9.4 Grid & Viya QuickStart for Azure will take a SAS provided license package for SAS 9.4 Grid, Viya and deploy a well-architected SAS platform into the customer’s Azure subscription. The deployment creates a virtual network and other required infrastructure. After the deployment process completes, you will have the necessary details for the endpoints and connection details to log in to the new SAS Ecosystem. By default, QuickStart deployments enable Transport Layer Security (TLS) for secure communication
 
 <a name="Overview"></a>
 ### Architecture Overview
@@ -77,9 +76,9 @@ The QuickStart will setup the following environment on Microsoft Azure:
 * In the public subnet, a Linux bastion host acting as an Ansible Controller Host.
 * In the private subnet, a Remote Desktop instance acting as a Client Machine.
 * In the Application subnets (private subnet), Virtual Machines for:
-	* <b>SAS 9.4 Grid</b>  – Grid Controller, Grid Nodes, Metadata, and Mid-Tier
-  * <b>Lustre Platform</b> - Management Service(MDT), Metadata Service(MDS) and Object Storage Service(OSS)
-	* <b>SAS Viya</b> – Microservices, SPRE, CAS Controller and CAS Workers
+	* <b>SAS 9.4 Grid</b>  – Grid Controller, Grid Nodes, Metadata, and Mid-Tier Servers
+  * <b>Lustre Platform</b> - Management Service(MDT), Metadata Service(MDS), and Object Storage Service(OSS) Servers
+  * <b>SAS Viya</b> - Microservices, SPRE, Cloud Analytics Services (CAS) Controller and CAS Worker Servers
 * Disks required for SAS Binaries, Configuration, and Data will be provisioned using Premium Disks in Azure.
 * Security groups for Virtual Machines and Subnets.
 * Accelerated Networking is enabled on all the network interfaces.
@@ -92,7 +91,7 @@ The QuickStart will setup the following environment on Microsoft Azure:
 
 <a name="SAS9Components"></a>
 #### SAS 9.4 Grid Components
-SAS 9.4 Grid QuickStart bootstraps the infrastructure of SAS 9.4 environment with:
+SAS® 9.4 Grid QuickStart bootstraps the infrastructure of SAS 9.4 environment with:
 
  * 1 x SAS Grid Control Server
  * n x Grid Nodes
@@ -100,18 +99,18 @@ SAS 9.4 Grid QuickStart bootstraps the infrastructure of SAS 9.4 environment wit
  * 1 x SAS Mid-Tier Server
  * 1 x Windows RDP Machine (For accessing thick clients)
  
- It also deploys the SAS Software stack in the machines and performs post-installation steps to validate and secure the mid-tier for encrypted communication. The template will also install SAS Thick Clients like SAS Enterprise Guide, SAS Enterprise Miner, SAS Data Integration Studio, and SAS Management Console on the Windows RDP Machine.
+ It also deploys the SAS Software stack in the machines and performs post-installation steps to validate and secure the mid-tier for encrypted communication. The template will also install SAS desktop clients like SAS® Enterprise Guide®, SAS® Enterprise Miner™, SAS® Data Integration Studio, and SAS® Management Console on the Windows RDP Machine.
 
-SAS Grid requires a network share that all computers on your cluster can access. This can be a Network File System (NFS) mount, a directory on a SAN, an SMBFS/CIFS mount, or any other method of creating a directory that is shared among all the machines in the grid. To meet this requirement, the Quick Start sets up Lustre, which is a parallel file system.
+SAS® Grid requires a network share that all computers on your cluster can access. This can be a Network File System (NFS) mount, a directory on a SAN, an SMBFS/CIFS mount, or any other method of creating a directory that is shared among all the machines in the grid. To meet this requirement, the Quick Start sets up Lustre, which is a parallel file system.
 
  * 1 x Management Service(MGT)
  * 1 x Metadata Service(MDT)
- * n x Object Storage Service(OSS)
+ * n x Object Storage Service(OSS) (Number to be specified by user while launching Quick Start)
 
 
 <a name="ViyaComponents"></a>
 #### SAS Viya Components
-SAS Viya Quick Start bootstraps the infrastructure required for SAS Viya MPP system consisting of: 
+SAS Viya® Quick Start bootstraps the infrastructure required for SAS Viya MPP system consisting of: 
 
  * 1 x Ansible Controller (acts as Bastion Host)
  * 1 x Microservices
@@ -122,7 +121,9 @@ The template will run with pre-requisites to install SAS Viya on these servers a
 
 <a name="Cost"></a>
 ## Cost & Licenses
-The user is responsible for the cost of the Azure Cloud services used while running this QuickStart deployment. There is no additional cost for using the QuickStart. You will need a SAS license (emailed from SAS for SAS 9.4 Grid and SAS Viya) to launch this QuickStart. Your SAS account team can advise on the appropriate software licensing and sizing to meet the workload and performance needs. We have given some recommended sizing for the deployment to help you choose during deployment.
+The user is responsible for the cost of the Azure Cloud services used while running this QuickStart deployment. There is no additional cost for using the QuickStart. You will need a SAS license (emailed from SAS for SAS 9.4 Grid and SAS Viya) to launch this QuickStart. Your SAS account team can advise on the appropriate software licensing and sizing to meet the workload and performance needs. SAS software is typically licensed on maximum number of physical cores for the computational engine.
+
+In Azure, instance sizes are based on virtual CPUs (vcpus) which equates to 2 vcpus per physical core. We provide recommended instance types and sizes, based on physical cores, as a starting point for this deployment. It is important to use server types that support Accelerated Networking and Premium Storage features. You may choose to use larger instances as recommended by SAS sizing guidelines, but we recommend using the instance series noted.
 
 <a name="SAS9Sizing"></a>
 ### SAS 9.4 Grid Sizing
@@ -130,29 +131,36 @@ Here are some recommended Machine Types for SAS 9.4 Grid environment:
 
 For <b>Grid Controller Server</b>, choose from this list for:
 
-| Licensed Cores  |	Virtual Machine  | SKU	Memory (RAM)  |	Temporary Storage |
+|  VCPUS 	  |	Virtual Machine  | SKU	Memory (RAM)  |	Temporary Storage |
 | --------------- | ---------------- | ------------------ | ----------------- |
-|   4	          |  Standard_E8s_v3 |	64 GB             |	 128 GB             | 
-|   8	          |  Standard_E16s_v3 |	128 GB            |  256 GB             |
-|   4	          |  Standard_E32s_v3 |	256 GB            |	 512 GB             |
-
+|   4             |  Standard_E4s_v3  | 32 GB		  |  64 GB            |
+|   8	          |  Standard_E8s_v3 |	64 GB             |  128 GB           |
+|   16	          |  Standard_E16s_v3 |	128 GB            |  256 GB           |
+|   4             |  Standard_DS12_v2 | 28 GB             |  56 GB            |
+|   8             |  Standard_DS13_v2 | 56 GB             |  112 GB           |
+|   16            |  Standard_DS14_v2 | 112 GB            |  224 GB           |
+  
 
 For <b>Grid Nodes</b>, choose from this list for:
 
-| Licensed Cores  |	Virtual Machine  | SKU	Memory (RAM)  |	Temporary Storage |
+|  VCPUS 	  |	Virtual Machine  | SKU	Memory (RAM)  |	Temporary Storage |
 | --------------- | ---------------- | ------------------ | ----------------- |
-|   2	          |  Standard_E4s_v3   |	32 GB             |	 512 GB           |
-|   4	          |  Standard_E8s_v3   |	64 GB             |	 128 GB           | 
-|   8	          |  Standard_E16s_v3  |	128 GB            |  256 GB           |
+|   4             | Standard_E4s_v3  | 32 GB		  |  64 GB            |
+|   8	          |  Standard_E8s_v3 |	64 GB             |  128 GB           |
+|   16	          |  Standard_E16s_v3 |	128 GB            |  256 GB           |
+|   32            |  Standard_E16s_v3 |  256 GB           |  512 GB           |
+|   4             |  Standard_DS12_v2 | 28 GB             |  56 GB            |
+|   8             |  Standard_DS13_v2 | 56 GB             |  112 GB           |
+|   16            |  Standard_DS14_v2 | 112 GB            |  224 GB           |
 
+  
+For <b>Metadata Server</b>, We recommend to choose instance types which have minimum  4 physical cores or 8 vcpu and 32GB RAM such as <b>Standard_D4s_v3 or Standard_D8s_v3</b>
 
-For <b>Metadata Server</b>, choose between 4 to 8 cores (Standard_D4s_v3 or Standard_D8s_v3) and optimum memory. 
+For the <b>Mid-Tier server</b>, Start with 4 physical cores with sufficient memory (minimum 40 GB) to support Web Application JVMs, We recommend: <b>Standard_DS13_v2, Standard_E8s_v3, or Standard_D8s_v3</b>.
 
-For the <b>Mid-Tier server</b>, choose a machine between 4 to 8 cores with sufficient memory (minimum 40 GB) to support Web Application JVMs. Choose a machine-like <b>Standard_DS13_v2, Standard_E8s_v3, or Standard_D8s_v3</b>.
+For <b>Management Service(MGT)</b>, the default VM size has been taken as "standard_F4s_v2".
 
-For <b>Management Service(MGT)</b>, the default VM size has been taken as "standard_F4s_v2" by default.
-
-For <b>Metadata Service(MDT)</b>, the default VM size has been taken as "standard_F4s_v2" by default.
+For <b>Lustre Metadata Service(MDT)</b>, the default VM size has been taken as "standard_F4s_v2".
 
 For <b>Object Storage Service(OSS)</b>, choose between 8 to 16 cores (Standard_E8s_v3 or Standard_E16s_v3) and optimum memory
 
@@ -162,31 +170,55 @@ For SAS Viya, here are the recommendations:
 
 <b>Microservices Server:</b>
 
-Choose a machine of minimum 8 cores with 60 GB memory for Microservices. Some choices are:
- * Standard_E8s_v3 (or E16s_v3)
- * Standard_DS13_v2 (or DS14_v2)
+Choose a machine with minimum 4 physical cores and 60 GB memory. The recommended instance type is:
+ * Standard_E8s_v3
 
 <b>SPRE Server:</b>
 
-SPRE Server is responsible for the Compute actions in the Viya environment. Choose a machine with a minimum of 8 cores. Viable choices include:
- * Standard_E8s_v3 (or E16s_v3/E32s_v3)
- * Standard_D8s_v3 (or D16s_v3/D32s_v3)
+SPRE Server provides access to a 9.4 compute engine in a Viya environment. Viable choices include:
+
+|  VCPUS 	  |	Virtual Machine  | SKU	Memory (RAM)  |	Temporary Storage |
+| --------------- | ---------------- | ------------------ | ----------------- |
+|   4             | Standard_E4s_v3  | 32 GB		  |  64 GB            |
+|   8	          |  Standard_E8s_v3 |	64 GB             |  128 GB           |
+|   16	          |  Standard_E16s_v3 |	128 GB            |  256 GB           |
+|   32            |  Standard_E32s_v3 |  256 GB           |  512 GB           |
+|   4             |  Standard_DS12_v2 | 28 GB             |  56 GB            |
+|   8             |  Standard_DS13_v2 | 56 GB             |  112 GB           |
+|   16            |  Standard_DS14_v2 | 112 GB            |  224 GB           |
+
 
 <b>CAS Controller and Workers Nodes:</b>
 
-Here are some recommended example VM sizes based on the number of licensed cores:
-|Licensed Cores	| Virtual Machine | SKU	Memory (RAM) |	Temporary Storage |
-| ------------- | --------------- | ---------------- | ------------------ |
-|   4           | Standard_E8s_v3 | 64 GB	         |  128 GB            |
-|   8           | Standard_E16s_v3|	128 GB           |	256 GB            |
-|   16	        | Standard_E32s_v3|	256 GB	         |  512 GB            |
+For <b>CAS Controller Server</b>, choose from this list for:
 
+|  VCPUS 	  |	Virtual Machine  | SKU	Memory (RAM)  |	Temporary Storage |
+| --------------- | ---------------- | ------------------ | ----------------- |
+|   4             | Standard_E4s_v3  | 32 GB		  |  64 GB            |
+|   8	          |  Standard_E8s_v3 |	64 GB             |  128 GB           |
+|   16	          |  Standard_E16s_v3 |	128 GB            |  256 GB           |
+|   4             |  Standard_DS12_v2 | 28 GB             |  56 GB            |
+|   8             |  Standard_DS13_v2 | 56 GB             |  112 GB           |
+|   16            |  Standard_DS14_v2 | 112 GB            |  224 GB           |
+  
+
+For <b>CAS Worker Nodes</b>, choose from this list for:
+
+|  VCPUS 	  |	Virtual Machine  | SKU	Memory (RAM)  |	Temporary Storage |
+| --------------- | ---------------- | ------------------ | ----------------- |
+|   4             | Standard_E4s_v3  | 32 GB		  |  64 GB            |
+|   8	          |  Standard_E8s_v3 |	64 GB             |  128 GB           |
+|   16	          |  Standard_E16s_v3 |	128 GB            |  256 GB           |
+|   32            |  Standard_E16s_v3 |  256 GB           |  512 GB           |
+|   4             |  Standard_DS12_v2 | 28 GB             |  56 GB            |
+|   8             |  Standard_DS13_v2 | 56 GB             |  112 GB           |
+|   16            |  Standard_DS14_v2 | 112 GB            |  224 GB           |
 
 <a name="Prerequisites"></a>
 ## Prerequisites
 Before deploying SAS Quickstart Template for Azure, you must have the following:
 
-* Azure user account with Owner permission or Contributor Role and custom roles with below permissions:
+* An Azure user account with Owner permission or Contributor Role and custom roles with below permissions:
     * Microsoft.Authorization/roleAssignments/write
     * */read
     * Microsoft.Authorization/*/read
@@ -194,13 +226,13 @@ Before deploying SAS Quickstart Template for Azure, you must have the following:
     * Microsoft.KeyVault/vaults/*/read
 * Sufficient quota for the number of Cores in Azure Account to accommodate all the servers in the SAS 9.4 and SAS Viya ecosystem. Please check your [subscription limits](https://docs.microsoft.com/en-us/answers/questions/10982/where-do-i-see-the-current-azure-vm-quota-limits-f.html) before launching the QuickStart.  You can request an increase in standard vCPU quota limits per VM series from [Microsoft support](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests). 
 * A resource group that does not already contain a Quickstart deployment. For more information, see [Resource groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups).
-* All the Server types you select must support [Accelerated Networking](https://azure.microsoft.com/en-us/updates/accelerated-networking-in-expanded-preview/) and [Premium Storage](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)
+* All the Server types you select must support [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli) and [Premium Storage](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)
 * You would need AzureKeyVault Owner ID and SSH Public key to be provided in the parameters at the time of deployment. Follow the instructions on 
     * To Get the AzureKeyVault OwnerID, run the below command in the Azure Powershell.
         `Get-AzADUser -UserPrincipalName <user@domain.com> | grep Id`
     * How to [Generate the SSH Public key](https://www.ssh.com/ssh/putty/windows/puttygen)
 * A SAS Software Order Confirmation Email that contains supported Quickstart products.
-    The license file {emailed from SAS as `SAS_Viya_deployment_data.zip`} which describes your SAS Software Order. SAS 9.4 software order details required to download the sasdepot.
+    The license file {emailed from SAS as `SAS_Viya_deployment_data.zip`} which describes your SAS Viya Software Order and SAS 9.4 software order details required to download the sasdepot.
 
 <a name="Download"></a>
 ### Download SAS Software for 9.4 Grid and Viya
@@ -275,7 +307,7 @@ Below is the list of the Parameters that would require to be filled during the d
 |   SAS9.4 Private Subnet CIDR	    |   Default: 10.10.2.0/24	|   The CIDR block for the first private subnet where the SAS 9.4 and RDP machines will be deployed.  |
 |   Viya Private Subnet CIDR	    |   Default: 10.10.3.0/24	    |   The CIDR block for the second private subnet where the SAS Viya machines will be deployed.      |
 |   Lustre Private Subnet CIDR	    |   Default: 10.10.4.0/24	    |   The CIDR block for the Lustre private subnet where the Lustre machines will be deployed.|
-|   SAS9.4 Meta VM Size	            |   Required Input<br>Default: Standard_D4s_v3	|   VM Type for SAS Metadata Server.    |
+|   SAS9.4 Meta VM Size	            |   Required Input<br>Default: Standard_D8s_v3	|   VM Type for SAS Metadata Server.    |
 |   SAS9.4 Mid VM Size	            |   Required Input<br>Default: Standard_E8s_v3  |	VM Type for SAS Mid VM Server.      |
 |   SAS9.4 Grid VM Size	        |   Required Input<br>Default: Standard_E8s_v3	|   VM Type for SAS Grid Controller Server.     |
 |   SAS9.4 Grid Node Size	        |   Required Input<br>Default: Standard_E4s_v3	|   VM Type for SAS Grid Node Server.     |
@@ -283,7 +315,7 @@ Below is the list of the Parameters that would require to be filled during the d
 |   Lustre OSS Node VM Size	        |   Required Input<br>Default: Standard_E8s_v3	|   VM Type for SAS Lustre OSS Node Servers.     |
 |   Number of Lustre OSS Nodes        |   Default: 1<br>Min: 1<br>Max: 100	| The number of Lustre OSS Node Servers       |
 |   SAS94 Lustre Data Storage        |   Default:100<br>Min: 100<br>Max: 32767  |  The SAS data volume size for SAS 94 Gird. The total storage will be the multiple of OSS nodes and storage (i.e., Number of Lustre OSS Nodes * SAS94 Lustre Data Storage). |
-|   Viya Microservices VM Size	    |   Required Input<br>Default: Standard_E16s_v3	    |   VM Type for SAS Viya Microservices Server.  |
+|   Viya Microservices VM Size	    |   Required Input<br>Default: Standard_E8s_v3	    |   VM Type for SAS Viya Microservices Server.  |
 |   Viya SPRE VM Size	            |   Required Input<br>Default: Standard_E8s_v3	    |   VM Type for SAS Viya SPRE Server.       |
 |   Viya CAS Controller VM Size	    |   Required Input<br>Default: Standard_E8s_v3	    |   VM Type for SAS Viya CAS Controller Server. |
 |   Viya CAS Worker VM Size	        |   Required Input<br>Default: Standard_E8s_v3	    |   VM Type for SAS Viya CAS Worker Nodes.  |
@@ -502,6 +534,7 @@ SAS Quickstart for Azure uses the following network security groups to control a
 | Metadata NSG  |  Deny all | Allow All  | SAS 9.4 Metadata | No external connections can be directly made to the server.   |
 | Grid Server NSG  |  Deny all | Allow All  |  SAS 9.4 Compute | No external connections can be directly made to the server.   |
 | Mid NSG  |  Deny all | Allow All  |  SAS 9.4 Mid-tier | No external connections can be directly made to the server.   |
+| Lustre NSG  |  Deny all | Allow All  |  Lustre Nodes(MDT,MGT, OSS) | No external connections can be directly made to these servers.   |
 | Microservices NSG  |  Deny all | Allow All  |  SAS Viya Microservices | No external connections can be directly made to the server.   |
 | Spre NSG  |  Deny all | Allow All  |  SAS Viya Spre | No external connections can be directly made to the server.   |
 | CAS Controller NSG  |  Deny all | Allow All  |  SAS Viya CasController | No external connections can be directly made to the server.   |
